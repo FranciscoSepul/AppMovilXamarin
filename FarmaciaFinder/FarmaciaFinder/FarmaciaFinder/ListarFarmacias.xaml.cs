@@ -7,6 +7,7 @@ using Xamarin.Forms.Xaml;
 using System.Net.Http;
 using Acr.UserDialogs;
 using Newtonsoft.Json;
+using FarmaciaFinder.Services;
 
 namespace FarmaciaFinder
 {
@@ -134,7 +135,8 @@ namespace FarmaciaFinder
                         break;
                 }
                 #endregion 
-                List<Comuna> comunas =await listarComunas(region);
+                ServicesApi service = new ServicesApi();
+                List<Comuna> comunas =await service.listarComunas(region);
                 foreach (var item in comunas)
                 {
                     this.PickerFarmaciaComuna.Items.Add(item.comunas);
@@ -147,26 +149,6 @@ namespace FarmaciaFinder
             }
         }
 
-        public async Task<List<Comuna>> listarComunas(int region)
-        {
-            List<Comuna> comunas = new List<Comuna>();
-            using (var client = new HttpClient())
-            {
-                try
-                {
-                    string url = "https://apis.digital.gob.cl/dpa/regiones/" + region + "/provincias";
-                    var resp = await client.GetAsync(url);
-                    string json = resp.ToString();
-                    comunas = JsonConvert.DeserializeObject<List<Comuna>>(resp.ToString());
-                }
-                catch (Exception e)
-                {
-                    throw e;
-                }
-
-            }
-            return comunas;
-        }
     }
 
 }

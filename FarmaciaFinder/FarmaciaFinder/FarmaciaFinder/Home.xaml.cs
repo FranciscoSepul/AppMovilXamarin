@@ -1,5 +1,5 @@
 ﻿
-using FarmaciaFinder.Service;
+using FarmaciaFinder.Services;
 using System;
 
 using Xamarin.Forms;
@@ -22,7 +22,7 @@ namespace FarmaciaFinder
             {
                 DisplayAlert("Error", "Favor ingrese la comuna", "Volver");
             }
-            Services service = new Services();
+            ServicesApi service = new ServicesApi();
             var list =await service.ListarFarmacia();
             if (list != null)
             {

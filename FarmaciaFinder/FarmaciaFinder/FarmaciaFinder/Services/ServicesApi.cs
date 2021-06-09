@@ -6,9 +6,9 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FarmaciaFinder.Service
+namespace FarmaciaFinder.Services
 {
-    public class Services
+    public class ServicesApi
     {
         public async Task<List<Comuna>> listarComunas(int region)
         {
