@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FarmaciaFinder.LogI">
+    <ContentPage.Content>
+
+        <Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Text="Finder" FontSize="70"  HeightRequest="70" HorizontalOptions="Center"  Margin="1,90,1,1" />
+
+                <Image Source="confuturobanner.png" HeightRequest="70" HorizontalOptions="Center" Margin="1,170,1,1"></Image>
+                <StackLayout Grid.Row="1" Padding="40,30">
+                    <Label Text="Correo electrónico" FontSize="Body"/>
+                    <Entry x:Name="Username" BackgroundColor="Transparent"></Entry>
+                    <Label Text="Contraseña" FontSize="Body"/>
+                    <Entry x:Name="Password" BackgroundColor="Transparent" IsPassword="True" ></Entry>
+                    <Button Text="Inicia sesión" Margin="30" Clicked="Button_Log"></Button>
+                    <StackLayout Margin="70,7,70,1">
+                        <Button Text="¿Olvidaste tu contraseña?" Clicked="Button_RecuperatePass" BackgroundColor="Transparent"></Button>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

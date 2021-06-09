@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FarmaciaFinder.Home">
+    <ContentPage.Content>
+        <Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Text="Ingrese Comuna" FontSize="70"  HeightRequest="70" HorizontalOptions="Center"  Margin="1,90,1,1" />
+                <StackLayout Grid.Row="1" Padding="40,30">
+                    <Label Text="Comuna" FontSize="Body"/>
+                    <Entry x:Name="Comuna" BackgroundColor="Transparent"></Entry>
+                    <Button Text="Buscar" Margin="30" Clicked="Button_Comuna"></Button>
+                    <Button Text="Buscar Todo" Margin="30" Clicked="Button_Todo"></Button>
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
