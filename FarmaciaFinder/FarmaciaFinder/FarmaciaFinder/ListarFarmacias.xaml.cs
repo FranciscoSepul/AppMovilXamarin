@@ -1,17 +1,12 @@
 ﻿using FarmaciaFinder.ModelsDto;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using FarmaciaFinder;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Acr.UserDialogs;
-using Nito.AsyncEx;
-using Nito.AsyncEx.Synchronous;
-using Newtonsoft.Json;
 using System.Net.Http;
+using Acr.UserDialogs;
+using Newtonsoft.Json;
 
 namespace FarmaciaFinder
 {

@@ -1,11 +1,6 @@
-﻿using FarmaciaFinder.ModelsDto;
-using Newtonsoft.Json;
+﻿
+using FarmaciaFinder.Service;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -21,14 +16,14 @@ namespace FarmaciaFinder
         }       
 
         #region Buscar por comuna
-        private void Button_Comuna(object sender, EventArgs e)
+        private async void Button_Comuna(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(Comuna.Text))
             {
                 DisplayAlert("Error", "Favor ingrese la comuna", "Volver");
             }
-            Services service = DependencyService.Get<Services>();
-            var list = service.ListarFarmacia();
+            Services service = new Services();
+            var list =await service.ListarFarmacia();
             if (list != null)
             {
                 DisplayAlert("Error", "Sin conexión a ethernet", "Volver");

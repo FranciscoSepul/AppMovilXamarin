@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{4DCE3603-A660-467E-850F-071122986C5B}</ProjectGuid>
+    <ProjectGuid>{CAE11F05-7789-416E-9CA0-BA6707E00919}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
     <OutputType>Exe</OutputType>
@@ -129,7 +129,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\FarmaciaFinder\FarmaciaFinder.csproj">
-      <Project>{9823511F-CDCE-4AEB-8C2E-1B38DB9E05BC}</Project>
+      <Project>{77E24985-3293-4495-AB3A-28F7E757C31D}</Project>
       <Name>FarmaciaFinder</Name>
     </ProjectReference>
   </ItemGroup>

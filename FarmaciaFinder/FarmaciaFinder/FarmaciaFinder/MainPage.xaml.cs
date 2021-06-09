@@ -14,7 +14,6 @@ namespace FarmaciaFinder
         {
             InitializeComponent();
         }
-
         private void Button_IniciarS(object sender, EventArgs e)
         {
             Application.Current.MainPage = new LogI();
