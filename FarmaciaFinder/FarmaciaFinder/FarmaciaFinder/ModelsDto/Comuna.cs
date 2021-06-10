@@ -6,7 +6,6 @@ namespace FarmaciaFinder.ModelsDto
 {
     public class Comuna
     {
-        public string comunas { get; set; }
         public string codigo { get; set; }
         public string tipo { get; set; }
         public string nombre { get; set; }

@@ -10,17 +10,16 @@ namespace FarmaciaFinder.Services
 {
     public class ServicesApi
     {
-        public async Task<List<Comuna>> listarComunas(int region)
+        public async Task<List<Comuna>> listarComunas(string region)
         {
             List<Comuna> comunas = new List<Comuna>();
             using (var client = new HttpClient())
             {
                 try
                 {
-                    string url = "https://apis.digital.gob.cl/dpa/regiones/" + region + "/provincias";
+                    string url = "https://apis.digital.gob.cl/dpa/regiones/" + region + "/comunas";
                     var resp = await client.GetAsync(url);
-                    string json = resp.ToString();
-                    comunas = JsonConvert.DeserializeObject<List<Comuna>>(resp.ToString());
+                    comunas = JsonConvert.DeserializeObject<List<Comuna>>(resp.Content.ReadAsStringAsync().Result);
                 }
                 catch (Exception e)
                 {
@@ -54,24 +53,29 @@ namespace FarmaciaFinder.Services
             return list;
         }
 
-        public List<Regiones> listarRegion()
+        #region Listar regiones
+        public List<string> listarRegion()
         {
-            List<Regiones> list = new List<Regiones>();
-            using (var client = new HttpClient())
-            {
-                try
-                {
-                    string url = "https://apis.digital.gob.cl/dpa/regiones";
-                    var resp = client.GetAsync(url);
-                    string json = resp.ToString();
-                    list = JsonConvert.DeserializeObject<List<Regiones>>(resp.ToString());
-                    return list;
-                }
-                catch (Exception e)
-                {
-                    throw e;
-                }
-            }
+            var RegionList = new List<string>();
+
+            RegionList.Add("Tarapacá");
+            RegionList.Add("Antofagasta");
+            RegionList.Add("Atacama");
+            RegionList.Add("Coquimbo");
+            RegionList.Add("Valparaíso");
+            RegionList.Add("O'Higgins");
+            RegionList.Add("Maule");
+            RegionList.Add("El Bío Bío");
+            RegionList.Add("La Araucanía");
+            RegionList.Add("Los Lagos");
+            RegionList.Add("Magallanes");
+            RegionList.Add("Metropolitana de Santiago");
+            RegionList.Add("Los Ríos");
+            RegionList.Add("Arica y Parinacota");
+            RegionList.Add("Ñuble");
+            return RegionList;
         }
+        #endregion
+
     }
 }
