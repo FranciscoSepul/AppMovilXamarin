@@ -10,6 +10,7 @@ namespace FarmaciaFinder.Services
 {
     public class ServicesApi
     {
+        #region listar comunas
         public async Task<List<Comuna>> listarComunas(string region)
         {
             List<Comuna> comunas = new List<Comuna>();
@@ -29,7 +30,9 @@ namespace FarmaciaFinder.Services
             }
             return comunas;
         }
+        #endregion
 
+        #region List farmacias de turno
         public async Task<List<Farmace>> ListarFarmacia()
         {
             List<Farmace> list = new List<Farmace>();
@@ -52,6 +55,7 @@ namespace FarmaciaFinder.Services
             }
             return list;
         }
+        #endregion
 
         #region Listar regiones
         public List<string> listarRegion()
@@ -77,5 +81,64 @@ namespace FarmaciaFinder.Services
         }
         #endregion
 
+        #region regiones a numero
+        public string RegionToNumber(string NamePickeRegion)
+        {
+
+            string region = "No se encontro la region";
+            switch (NamePickeRegion)
+            {
+                case "Tarapacá":
+                    region = "01";
+                    break;
+                case "Antofagasta":
+                    region = "02";
+                    break;
+                case "Atacama":
+                    region = "03";
+                    break;
+                case "Coquimbo":
+                    region = "04";
+                    break;
+                case "Valparaíso":
+                    region = "05";
+                    break;
+                case "O'Higgins":
+                    region = "06";
+                    break;
+                case "Maule":
+                    region = "07";
+                    break;
+                case "El Bío Bío":
+                    region = "08";
+                    break;
+                case "La Araucanía":
+                    region = "09";
+                    break;
+                case "Los Lagos":
+                    region = "10";
+                    break;
+                case "Aysén":
+                    region = "11";
+                    break;
+                case "Magallanes":
+                    region = "12";
+                    break;
+                case "Metropolitana de Santiago":
+                    region = "13";
+                    break;
+                case "Los Ríos":
+                    region = "14";
+                    break;
+                case "Arica y Parinacota":
+                    region = "15";
+                    break;
+                case "Ñuble":
+                    region = "16";
+                    break;
+            }
+            return region;
+        }
+        #endregion
     }
 }

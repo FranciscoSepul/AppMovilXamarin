@@ -10,7 +10,7 @@ namespace FarmaciaFinder
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new ListarFarmacias();
         }
 
         protected override void OnStart()
