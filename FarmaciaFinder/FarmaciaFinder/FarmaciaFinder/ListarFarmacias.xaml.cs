@@ -21,6 +21,10 @@ namespace FarmaciaFinder
         private Label horarioA;
         private Label horarioC;
         private Button btnBurcarEnMaps;
+        private string Latitud;
+        private string Longitud;
+        private string direction;
+        private string Name;
         ServicesApi api = new ServicesApi();
 
         public ListarFarmacias()
@@ -92,6 +96,7 @@ namespace FarmaciaFinder
             this.PickerFarmaciaComuna.SelectedIndexChanged += new EventHandler(this.LoadPicketSucursal);
             this.btnBurcarEnMaps.Clicked += new EventHandler(this.LoadMaps);
             #endregion
+
             this.Content = new StackLayout
             {
                 Children =
@@ -102,7 +107,8 @@ namespace FarmaciaFinder
                     this.nombreF,
                     this.direccion,
                     this.horarioA,
-                    this.horarioC
+                    this.horarioC,
+                    this.btnBurcarEnMaps
                 }
             };
             UserDialogs.Instance.HideLoading();
@@ -111,7 +117,13 @@ namespace FarmaciaFinder
         #region Buscar direccion en maps
         private async void LoadMaps(object sender, EventArgs e)
         {
+            MapDto map = new MapDto();
+            map.adddres = this.direction;
+            map.placeName = this.Name;
+            map.latitud = this.Latitud;
+            map.longitud = this.Longitud;
 
+            Application.Current.MainPage = new Maps(map);
         }
         #endregion
 
@@ -163,6 +175,10 @@ namespace FarmaciaFinder
                 {
                     foreach (var item in farmaciaDeLaComuna)
                     {
+                        this.Latitud = item.local_lat;
+                        this.Longitud = item.local_lng;
+                        this.Name =item.local_nombre;
+                        this.direction =item.local_direccion;
                         this.nombreF.Text = "Sucursal : " + item.local_nombre;
                         this.direccion.Text = "Direccion : " + item.local_direccion;
                         this.horarioA.Text = "Hora Apertura : " + item.funcionamiento_hora_apertura.ToString();
