@@ -31,7 +31,7 @@ namespace FarmaciaFinder
                 60d
                 ));
          
-            Pin pin = new Pin { Type = PinType.Place, Label = maps.placeName, Address = maps.adddres, Position = new Position(double.Parse(maps.latitud.ToString(), CultureInfo.InvariantCulture), Double.Parse(maps.longitud.ToString(), CultureInfo.InvariantCulture)) };
+            Pin pin = new Pin { Type = PinType.Place, Label ="Farmacia "+ maps.placeName, Address = maps.adddres, Position = new Position(double.Parse(maps.latitud.ToString(), CultureInfo.InvariantCulture), Double.Parse(maps.longitud.ToString(), CultureInfo.InvariantCulture)) };
             map.Pins.Add(pin);
             
         }
